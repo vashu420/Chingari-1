@@ -1,0 +1,42 @@
+
+.subs-overlay-wrapper{
+    background-color:rgba(133, 135, 150, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;  
+    align-items:center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.subs-overlay{
+    border: 2px solid black;
+    background-color: white;
+    padding: 2vw;
+    width: 80vw;
+    overflow-y: scroll;
+    grid-template-columns: 1fr 0.1fr; 
+    grid-template-rows: 1fr 2fr 2fr 2fr; 
+    grid-template-areas: ". back" 
+                        "submitted submitted" 
+                        "button1 button1"
+                        "button2 button2"
+    
+}
+
+.subs-overlay h3{
+    grid-area: submitted;
+    align-self: center;
+    justify-self: center;
+}
+
+.subs-overlay i{
+    grid-area: back;
+    justify-self: end;
+    align-self: center;
+    width: max-content;
+    cursor: pointer;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Booking</title>
+    <link rel="stylesheet" href="{%static 'css/admin_calendar.css'%}">
+    <link rel="stylesheet" href="{%static 'fullcalendar-scheduler/lib/main.css'%}">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        /* Add custom CSS styles for your slot booking page here */
+    </style>
+</head>
+<body>
+    <h1>Slot Booking</h1>
+    <form id="slotBookingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <select id="time" name="time" required>
+            <!-- Generate hourly slots from 6 am to 11 pm -->
+            <option value="06:00 AM">06:00 AM</option>
+            <option value="07:00 AM">07:00 AM</option>
+            <option value="08:00 AM">08:00 AM</option>
+            <option value="09:00 AM">09:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="01:00 PM">01:00 PM</option>
+            <option value="02:00 PM">02:00 PM</option>
+            <option value="03:00 PM">03:00 PM</option>
+            <option value="04:00 PM">04:00 PM</option>
+            <option value="05:00 PM">05:00 PM</option>
+            <option value="06:00 PM">06:00 PM</option>
+            <option value="07:00 PM">07:00 PM</option>
+            <option value="08:00 PM">08:00 PM</option>
+            <option value="09:00 PM">09:00 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+            <option value="11:00 PM">11:00 PM</option>
+        </select>
+
+        <button id="checkAvailabilityButton" type="button">Check Availability</button>
+
+        <!-- Display available slots here -->
+        <div id="availableSlots"></div>
+
+        <input type="submit" value="Book Slot">
+    </form>
+
+    <script>
+        // JavaScript code for handling slot availability check
+        document.getElementById('checkAvailabilityButton').addEventListener('click', function() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            // Send an AJAX request to check available slots for the selected date and time
+            // Update the "availableSlots" div with the available slots information
+            // You'll need a backend service to handle this request
+            // Example:
+            // fetch(`/check_availability?date=${date}&time=${time}`)
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         document.getElementById('availableSlots').innerHTML = `Available Slots: ${data.available}`;
+            //     })
+            //     .catch(error => {
+            //         console.error('Error checking availability:', error);
+            //     });
+        });
+    </script>
+</body>
+</html>

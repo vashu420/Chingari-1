@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <!-- Link to your CSS file -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turf Booking System</title>
 </head>
@@ -29,4 +29,32 @@
         </form>
     </div>
 </body>
+<script>
+    $(document).ready(function() {
+        $('#loginForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            var formData = {
+                loginName: $('#loginName').val(),
+                loginPhoneNumber: $('#loginPhoneNumber').val()
+            };
+
+            // Send AJAX POST request to the server
+            $.ajax({
+                type: 'POST',
+                url: '/save_login_details/', // Replace with your server-side endpoint
+                data: formData,
+                success: function(response) {
+                    // Handle the success response from the server
+                    console.log('Login details saved successfully');
+                },
+                error: function(error) {
+                    // Handle any errors that occur during the request
+                    console.error('Error saving login details:', error);
+                }
+            });
+        });
+    });
+</script>
 </html>
