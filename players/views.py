@@ -6,3 +6,5 @@ from django.contrib.auth.views import LoginView
 class RegisterLoginView(LoginView):
     template_name = 'players/login.html'
 
+def login_page(request):
+    return render(request, 'login.html')
