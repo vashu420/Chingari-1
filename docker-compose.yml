@@ -1,0 +1,24 @@
+version: "3.11"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=chingari
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=software
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=chingari
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=software
+    depends_on:
+      - db
