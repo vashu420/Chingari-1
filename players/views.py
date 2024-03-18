@@ -25,6 +25,10 @@ class SaveLoginDetails(APIView):
             loginPhoneNumber=request.POST['loginPhoneNumber']
             print('username',username)
             print('loginPhoneNumber',loginPhoneNumber)
-            RegisterUser.objects.create(identity =username, mobile_number =loginPhoneNumber, whatsapp_number =loginPhoneNumber)
-            return Response({'message' : 'All Saved!'}, status = status.HTTP_200_OK)
+            if username and loginPhoneNumber:
+                RegisterUser.objects.create(identity =username,username = username, mobile_number =loginPhoneNumber, whatsapp_number =loginPhoneNumber)
+                return Response({'message' : 'All Saved!'}, status = status.HTTP_200_OK)
+            else:
+                return Response({'message' : 'no username and loginnumber found'})
+
             
