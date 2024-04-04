@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'players',
-    'django_otp',
-    'django_otp.plugins.otp_totp',
+    # 'django_otp',
+    # 'django_otp.plugins.otp_totp',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': os.environ.get('POSTGRES_NAME'),
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST':"localhost", 
+        'HOST':"db", 
         'PORT': 5432,
     }
 }

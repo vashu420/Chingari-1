@@ -6,3 +6,4 @@ sqlparse==0.4.4
 typing-extensions==4.8.0
 djangorestframework
 python-dotenv
+django_otp
