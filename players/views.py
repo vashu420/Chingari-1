@@ -31,5 +31,4 @@ class SaveLoginDetails(APIView):
             else:
                 return Response({'message' : 'no username and loginnumber found'})
 
-
-
+            
